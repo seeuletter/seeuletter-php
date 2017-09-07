@@ -48,7 +48,7 @@ abstract class Resource implements ResourceInterface
             return $all;
         }
 
-        return $all['data'];
+        return $all;
     }
 
     public function create(array $data)
