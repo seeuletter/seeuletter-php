@@ -28,7 +28,7 @@ class Lifebot
             $this->setApiKey($apiKey);
         }
         $this->version = $version;
-        $this->clientVersion = '2.0.0';
+        $this->clientVersion = '1.0.0';
     }
 
     public function getApiKey()

@@ -253,9 +253,8 @@ abstract class Resource implements ResourceInterface
 
             return $error['message'];
         }
-        // @codeCoverageIgnoreStart
-        // Pokemon handling is tough to test... "Gotta catch em all!"
+
         return 'An Internal Error has occurred';
-        // @codeCoverageIgnoreEnd
+
     }
 }

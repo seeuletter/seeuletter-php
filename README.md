@@ -16,7 +16,7 @@ Lifebot.fr PHP Client is a simple but flexible wrapper for the [Lifebot.fr](http
 Here's a general overview of the Lifebot services available, click through to read more.
 
 
-Please read through the official [API Documentation](#api-documentation) to get a complete sense of what to expect from each endpoint.
+Please read through the official [API Documentation](https://docs.lifebot.fr/) to get a complete sense of what to expect from each endpoint.
 
 ### Registration
 
