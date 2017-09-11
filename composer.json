@@ -1,15 +1,15 @@
 {
-    "name": "lifebot-api/lifebot-php",
+    "name": "seeuletter/seeuletter-php",
     "type": "library",
-    "description": "Lifebot.fr API PHP wrapper.",
-    "keywords": ["lifebot", "printing", "mailing", "api", "rest", "web service", "wrapper"],
-    "homepage": "https://www.lifebot.fr/",
+    "description": "Seeuletter.com API PHP wrapper.",
+    "keywords": ["seeuletter", "printing", "mailing", "api", "rest", "web service", "wrapper"],
+    "homepage": "https://www.seeuletter.com/",
     "license": "MIT",
     "authors": [
         {
-            "name": "Lifebot",
-            "email": "hello@lifebot.fr",
-            "homepage": "https://www.lifebot.fr"
+            "name": "Seeuletter",
+            "email": "hello@seeuletter.com",
+            "homepage": "https://www.seeuletter.com"
         }
     ],
     "require": {
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Lifebot": "src/"
+            "Seeuletter": "src/"
         }
     },
     "minimum-stability": "dev",

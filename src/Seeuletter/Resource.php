@@ -1,46 +1,46 @@
 <?php
 
 /*
- * This file is part of the Lifebot.fr PHP Client.
+ * This file is part of the Seeuletter.com PHP Client.
  *
- * (c) 2017 Lifebot.fr, https://www.lifebot.fr
+ * (c) 2017 Seeuletter.com, https://www.seeuletter.com
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Lifebot;
+namespace Seeuletter;
 
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ConnectException;
-use Lifebot\Exception\AuthorizationException;
-use Lifebot\Exception\InternalErrorException;
-use Lifebot\Exception\NetworkErrorException;
-use Lifebot\Exception\ResourceNotFoundException;
-use Lifebot\Exception\UnexpectedErrorException;
-use Lifebot\Exception\ValidationException;
-use Lifebot\Exception\RateLimitException;
+use Seeuletter\Exception\AuthorizationException;
+use Seeuletter\Exception\InternalErrorException;
+use Seeuletter\Exception\NetworkErrorException;
+use Seeuletter\Exception\ResourceNotFoundException;
+use Seeuletter\Exception\UnexpectedErrorException;
+use Seeuletter\Exception\ValidationException;
+use Seeuletter\Exception\RateLimitException;
 
 abstract class Resource implements ResourceInterface
 {
-    protected $lifebot;
+    protected $seeuletter;
 
     protected $client;
 
-    public function __construct(Lifebot $lifebot)
+    public function __construct(Seeuletter $seeuletter)
     {
-        $this->lifebot = $lifebot;
-        $this->client = new Client(array('base_uri' => 'https://api.lifebot.fr/'));
+        $this->seeuletter = $seeuletter;
+        $this->client = new Client(array('base_uri' => 'https://api.seeuletter.com/'));
     }
 
     public function all(array $query = array(), $includeMeta = false)
     {
         $all = $this->sendRequest(
             'GET',
-            $this->lifebot->getVersion(),
-            $this->lifebot->getClientVersion(),
+            $this->seeuletter->getVersion(),
+            $this->seeuletter->getClientVersion(),
             $this->resourceName(),
             $query
         );
@@ -55,8 +55,8 @@ abstract class Resource implements ResourceInterface
     {
         return $this->sendRequest(
             'POST',
-            $this->lifebot->getVersion(),
-            $this->lifebot->getClientVersion(),
+            $this->seeuletter->getVersion(),
+            $this->seeuletter->getClientVersion(),
             $this->resourceName(),
             array(),
             $data
@@ -67,8 +67,8 @@ abstract class Resource implements ResourceInterface
     {
         return $this->sendRequest(
             'GET',
-            $this->lifebot->getVersion(),
-            $this->lifebot->getClientVersion(),
+            $this->seeuletter->getVersion(),
+            $this->seeuletter->getClientVersion(),
             $this->resourceName().'/'.strval($id)
         );
     }
@@ -77,8 +77,8 @@ abstract class Resource implements ResourceInterface
     {
         return $this->sendRequest(
             'DELETE',
-            $this->lifebot->getVersion(),
-            $this->lifebot->getClientVersion(),
+            $this->seeuletter->getVersion(),
+            $this->seeuletter->getClientVersion(),
             $this->resourceName().'/'.strval($id)
         );
     }
@@ -160,13 +160,13 @@ abstract class Resource implements ResourceInterface
         $options = array(
             'headers' => array(
                 'Accept' => 'application/json; charset=utf-8',
-                'User-Agent' => 'Lifebot/v1 PhpBindings/' . $clientVersion,
+                'User-Agent' => 'Seeuletter/v1 PhpBindings/' . $clientVersion,
             ),
-            'auth' => array($this->lifebot->getApiKey(), '')
+            'auth' => array($this->seeuletter->getApiKey(), '')
         );
 
         if ($version) {
-            $options['headers']['Lifebot-Version'] = $version;
+            $options['headers']['Seeuletter-Version'] = $version;
         }
 
         if (!$body) {

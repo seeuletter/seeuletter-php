@@ -1,7 +1,7 @@
-# lifebot-php
+# seeuletter-php
 
 
-Lifebot.fr PHP Client is a simple but flexible wrapper for the [Lifebot.fr](https://www.lifebot.fr) API. See full Lifebot.fr documentation [here](https://docs.lifebot.fr/). For best results, be sure that you're using the latest version of the Lifebot API and the latest version of the PHP wrapper.
+Seeuletter.com PHP Client is a simple but flexible wrapper for the [Seeuletter.com](https://www.seeuletter.com) API. See full Seeuletter.com documentation [here](https://docs.seeuletter.com/). For best results, be sure that you're using the latest version of the Seeuletter API and the latest version of the PHP wrapper.
 
 ## Table of Contents
 
@@ -13,27 +13,27 @@ Lifebot.fr PHP Client is a simple but flexible wrapper for the [Lifebot.fr](http
 
 ## Getting Started
 
-Here's a general overview of the Lifebot services available, click through to read more.
+Here's a general overview of the Seeuletter services available, click through to read more.
 
 
-Please read through the official [API Documentation](https://docs.lifebot.fr/) to get a complete sense of what to expect from each endpoint.
+Please read through the official [API Documentation](https://docs.seeuletter.com/) to get a complete sense of what to expect from each endpoint.
 
 ### Registration
 
-First, you will need to first create an account at [Lifebot.fr](https://www.lifebot.fr/signup) and obtain your Test and Live API Keys.
+First, you will need to first create an account at [Seeuletter.com](https://www.seeuletter.com/signup) and obtain your Test and Live API Keys.
 
-Once you have created an account, you can access your API Keys from the [Settings Panel](https://www.lifebot.fr/app/dashboard/keys).
+Once you have created an account, you can access your API Keys from the [Settings Panel](https://www.seeuletter.com/app/dashboard/keys).
 
 ### Installation
 
-The recommended way to install Lifebot.fr PHP Client is through [Composer](http://getcomposer.org).
+The recommended way to install Seeuletter.com PHP Client is through [Composer](http://getcomposer.org).
 
 ```bash
 // Install Composer
 curl -sS https://getcomposer.org/installer | php
 
-// Add Lifebot.fr PHP client as a dependency
-composer require lifebot-api/lifebot-php
+// Add Seeuletter.com PHP client as a dependency
+composer require seeuletter/seeuletter-php
 ```
 
 After installing, you need to require Composer's autoloader:
@@ -49,12 +49,12 @@ require 'vendor/autoload.php';
 require 'vendor/autoload.php';
 
 // Provide an API Key in the class constructor
-// in order to instantiate the Lifebot object
+// in order to instantiate the Seeuletter object
 $apiKey = 'API Key here';
-$lifebot = new \Lifebot\Lifebot($apiKey);
+$seeuletter = new \Seeuletter\Seeuletter($apiKey);
 
 $to_address = array(
-  'name'                  => 'Lifebot',
+  'name'                  => 'Seeuletter',
   'address_line1'         => '30 rue de rivoli',
   'address_line2'         => '',
   'address_city'          => 'Paris',
@@ -62,7 +62,7 @@ $to_address = array(
   'address_postalcode'    => '75004'
 );
 
-$letter = $lifebot->letters()->create(array(
+$letter = $seeuletter->letters()->create(array(
   'to'                  => $to_address,
   'source_file'         => '@test.pdf',
   'description'         => 'Test Letters',
@@ -78,11 +78,11 @@ print_r($letter);
 
 ## Examples
 
-We've provided various examples for you to try out [here](https://github.com/lifebot-api/lifebot-php/tree/master/examples).
+We've provided various examples for you to try out [here](https://github.com/seeuletter/seeuletter-php/tree/master/examples).
 
 
 =======================
 
-Copyright &copy; 2017 Lifebot.fr
+Copyright &copy; 2017 Seeuletter.com
 
 Released under the MIT License, which can be found in the repository in `LICENSE.txt`.

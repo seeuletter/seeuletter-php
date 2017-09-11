@@ -1,11 +1,11 @@
 <?php
 require '../vendor/autoload.php';
 
-$lifebot = new \Lifebot\Lifebot('test_1d09eb54-c7a6-4f89-abd2-2e4106c5b115');
+$seeuletter = new \Seeuletter\Seeuletter('test_1d09eb54-c7a6-4f89-abd2-2e4106c5b115');
 
 
 $to_address = array(
-  'name'                  => 'Lifebot',
+  'name'                  => 'Seeuletter',
   'address_line1'         => '30 rue de rivoli',
   'address_line2'         => '',
   'address_city'          => 'Paris',
@@ -13,7 +13,7 @@ $to_address = array(
   'address_postalcode'    => '75004'
 );
 
-$letter = $lifebot->letters()->create(array(
+$letter = $seeuletter->letters()->create(array(
   'to'                  => $to_address,
   'source_file'         => '@../../test.pdf',
   'description'         => 'Test Letters',
