@@ -1,5 +1,7 @@
 # seeuletter-php
 
+[![Packagist version](https://img.shields.io/packagist/v/seeuletter/seeuletter-php.svg)](https://github.com/seeuletter/seeuletter-php)
+
 
 Seeuletter.com PHP Client is a simple but flexible wrapper for the [Seeuletter.com](https://www.seeuletter.com) API. See full Seeuletter.com documentation [here](https://docs.seeuletter.com/). For best results, be sure that you're using the latest version of the Seeuletter API and the latest version of the PHP wrapper.
 
@@ -16,13 +18,13 @@ Seeuletter.com PHP Client is a simple but flexible wrapper for the [Seeuletter.c
 Here's a general overview of the Seeuletter services available, click through to read more.
 
 
-Please read through the official [API Documentation](https://docs.seeuletter.com/) to get a complete sense of what to expect from each endpoint.
+Please read through the official [API Documentation](https://docs.seeuletter.com/?php#) to get a complete sense of what to expect from each endpoint.
 
 ### Registration
 
 First, you will need to first create an account at [Seeuletter.com](https://www.seeuletter.com/signup) and obtain your Test and Live API Keys.
 
-Once you have created an account, you can access your API Keys from the [Settings Panel](https://www.seeuletter.com/app/dashboard/keys).
+Once you have created an account, you can access your API Keys from the [API keys Panel](https://www.seeuletter.com/app/dashboard/keys).
 
 ### Installation
 
@@ -44,6 +46,7 @@ require 'vendor/autoload.php';
 
 ### Usage
 
+#### Create a new Letter
 ```php
 <?php
 require 'vendor/autoload.php';
@@ -73,6 +76,33 @@ $letter = $seeuletter->letters()->create(array(
 
 print_r($letter);
 
+?>
+```
+
+#### Get all Letters
+
+```php
+<?php
+  require 'vendor/autoload.php';
+
+  $seeuletter = new \Seeuletter\Seeuletter('test_12345678901234567890');
+
+  $letters = $seeuletter->letters()->all();
+
+  print_r($letters);
+?>
+```
+
+#### Get a specific Letter
+```php
+<?php
+  require 'vendor/autoload.php';
+
+  $seeuletter = new \Seeuletter\Seeuletter('test_12345678901234567890');
+
+  $letter = $seeuletter->letters()->get('LETTER_ID');
+
+  print_r($letter);
 ?>
 ```
 
