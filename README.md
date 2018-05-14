@@ -1,6 +1,7 @@
 # seeuletter-php
 
 [![Packagist version](https://img.shields.io/packagist/v/seeuletter/seeuletter-php.svg)](https://github.com/seeuletter/seeuletter-php)
+[![Dependency Status](https://gemnasium.com/badges/github.com/seeuletter/seeuletter-php.svg)](https://gemnasium.com/github.com/seeuletter/seeuletter-php)
 
 
 Seeuletter.com PHP Client is a simple but flexible wrapper for the [Seeuletter.com](https://www.seeuletter.com) API. See full Seeuletter.com documentation [here](https://docs.seeuletter.com/). For best results, be sure that you're using the latest version of the Seeuletter API and the latest version of the PHP wrapper.
