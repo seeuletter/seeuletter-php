@@ -54,7 +54,7 @@ require 'vendor/autoload.php';
 
 // Provide an API Key in the class constructor
 // in order to instantiate the Seeuletter object
-$apiKey = 'API Key here';
+$apiKey = 'your API Key here';
 $seeuletter = new \Seeuletter\Seeuletter($apiKey);
 
 $to_address = array(
@@ -73,6 +73,35 @@ $letter = $seeuletter->letters()->create(array(
   'color'               => 'bw',
   'source_file_type'    => 'file',
   'postage_type'        => 'verte'
+));
+
+print_r($letter);
+
+?>
+```
+
+#### Create a new Electronic Letter
+```php
+<?php
+require '../vendor/autoload.php';
+
+$apiKey = 'your API key here';
+$seeuletter = new \Seeuletter\Seeuletter($apiKey);
+
+$to_address_electronic = array(
+  'first_name'            => 'Erlich',
+  'last_name'             => 'Dumas',
+  'company'               => 'Seeuletter',
+  'email'                 => 'seeuletter@example.com'
+);
+
+$letter = $seeuletter->letters()->createElectronic(array(
+  'to'                  => $to_address_electronic,
+  'source_file'         => '<html>This is the electronic letter attached document</html>',
+  'source_file_type'    => 'html',
+  'description'         => 'Test Electronic Letters',
+  'content'             => 'Please review the attached documents',
+  'postage_type'        => 'lre'
 ));
 
 print_r($letter);
