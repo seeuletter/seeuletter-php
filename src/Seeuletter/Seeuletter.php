@@ -28,7 +28,7 @@ class Seeuletter
             $this->setApiKey($apiKey);
         }
         $this->version = $version;
-        $this->clientVersion = '1.0.0';
+        $this->clientVersion = '1.1.0';
     }
 
     public function getApiKey()
