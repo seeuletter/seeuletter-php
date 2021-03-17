@@ -63,6 +63,18 @@ abstract class Resource implements ResourceInterface
         );
     }
 
+    public function createElectronic(array $data)
+    {
+        return $this->sendRequest(
+            'POST',
+            $this->seeuletter->getVersion(),
+            $this->seeuletter->getClientVersion(),
+            $this->resourceName()."/electronic",
+            array(),
+            $data
+        );
+    }
+
     public function get($id)
     {
         return $this->sendRequest(
