@@ -15,6 +15,8 @@ use InvalidArgumentException;
 use BadMethodCallException;
 use Seeuletter\Resource;
 use Seeuletter\Resource\Letters;
+use Seeuletter\Resource\Accounts;
+use Seeuletter\Resource\Invoices;
 
 class Seeuletter
 {
@@ -28,7 +30,7 @@ class Seeuletter
             $this->setApiKey($apiKey);
         }
         $this->version = $version;
-        $this->clientVersion = '1.1.0';
+        $this->clientVersion = '1.2.0';
     }
 
     public function getApiKey()
@@ -59,5 +61,15 @@ class Seeuletter
     public function letters()
     {
         return new Letters($this);
+    }
+
+    public function accounts()
+    {
+        return new Accounts($this);
+    }
+
+    public function invoices()
+    {
+        return new Invoices($this);
     }
 }

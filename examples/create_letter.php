@@ -1,12 +1,12 @@
 <?php
 require '../vendor/autoload.php';
 
-$apiKey = 'test_1d09eb54-c7a6-4f89-abd2-2e4106c5b115';
+$apiKey = 'API_KEY_HERE';
 $seeuletter = new \Seeuletter\Seeuletter($apiKey);
 
 
 $to_address = array(
-  'name'                  => 'Seeuletter',
+  'name'                  => 'Seeuletter from PHP wrapper',
   'address_line1'         => '30 rue de rivoli',
   'address_line2'         => '',
   'address_city'          => 'Paris',
@@ -16,10 +16,10 @@ $to_address = array(
 
 $letter = $seeuletter->letters()->create(array(
   'to'                  => $to_address,
-  'source_file'         => '@test.pdf',
+  'source_file'         => '<div>Hello</div>',
   'description'         => 'Test Letters',
   'color'               => 'bw',
-  'source_file_type'    => 'file',
+  'source_file_type'    => 'html',
   'postage_type'        => 'verte'
 ));
 
