@@ -63,18 +63,6 @@ abstract class Resource implements ResourceInterface
         );
     }
 
-    public function createElectronic(array $data)
-    {
-        return $this->sendRequest(
-            'POST',
-            $this->seeuletter->getVersion(),
-            $this->seeuletter->getClientVersion(),
-            $this->resourceName()."/electronic",
-            array(),
-            $data
-        );
-    }
-
     public function get($id)
     {
         return $this->sendRequest(
@@ -128,7 +116,7 @@ abstract class Resource implements ResourceInterface
             if ($method == 'GET' && ($statusCode === 404 || $statusCode === 422))
                 throw new ResourceNotFoundException($errorMessage, 404);
 
-            if ($method == 'POST' && $statusCode === 404)
+            if (($method == 'POST' || $method == 'PUT') && $statusCode === 404)
                 throw new ResourceNotFoundException($errorMessage, 404);
 
             if ($statusCode === 422)

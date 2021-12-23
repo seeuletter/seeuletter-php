@@ -11,7 +11,9 @@ Seeuletter.com PHP Client is a simple but flexible wrapper for the [Seeuletter.c
 - [Getting Started](#getting-started)
   - [Registration](#registration)
   - [Installation](#installation)
-  - [Usage](#usage)
+  - [Letters](#usage)
+  - [Accounts](#accounts)
+  - [Invoices](#invoices)
 - [Examples](#examples)
 
 ## Getting Started
@@ -45,7 +47,7 @@ After installing, you need to require Composer's autoloader:
 require 'vendor/autoload.php';
 ```
 
-### Usage
+### Letters
 
 #### Create a new Letter
 ```php
@@ -131,6 +133,79 @@ print_r($letter);
   $seeuletter = new \Seeuletter\Seeuletter('test_12345678901234567890');
 
   $letter = $seeuletter->letters()->get('LETTER_ID');
+
+  print_r($letter);
+?>
+```
+
+### Accounts
+
+#### Create a new account for the company
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+// Provide an API Key in the class constructor
+// in order to instantiate the Seeuletter object
+$seeuletter = new \Seeuletter\Seeuletter('test_12345678901234567890');
+
+$account = $seeuletter->accounts()->create(array(
+  'email'               => "msb.partner@example.com",
+  'name'                => "Erlich Bachman",
+  'phone'               => "+33104050607",
+  'company_name'        => "MSB Partner from PHP Wrapper",
+  'address_line1'       => '30 rue de rivoli',
+  'address_line2'       => '',
+  'address_city'        => 'Paris',
+  'address_country'     => 'France',
+  'address_postalcode'  => '75004'
+));
+
+print_r($account);
+
+?>
+```
+
+#### Update the account company email
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+// Provide an API Key in the class constructor
+// in order to instantiate the Seeuletter object
+$seeuletter = new \Seeuletter\Seeuletter('test_12345678901234567890');
+
+$account_response = $seeuletter->accounts()->updateEmail("COMPANY_ID_HERE", "msb.partner.new@example.com");
+?>
+```
+
+### Invoices
+
+#### List all invoices for a company
+
+```php
+<?php
+  require 'vendor/autoload.php';
+
+  $seeuletter = new \Seeuletter\Seeuletter('test_12345678901234567890');
+
+  $letters = $seeuletter->invoices()->all();
+
+  print_r($letters);
+?>
+```
+
+#### Get a specific invoice
+
+```php
+<?php
+  require 'vendor/autoload.php';
+
+  $seeuletter = new \Seeuletter\Seeuletter('test_12345678901234567890');
+
+  $letter = $seeuletter->invoices()->get('INVOICE_ID');
 
   print_r($letter);
 ?>
