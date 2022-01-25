@@ -15,4 +15,16 @@ use Seeuletter\Resource as ResourceBase;
 
 class Letters extends ResourceBase
 {
+    public function createElectronic(array $data)
+    {
+        return $this->sendRequest(
+            'POST',
+            $this->seeuletter->getVersion(),
+            $this->seeuletter->getClientVersion(),
+            $this->resourceName()."/electronic",
+            array(),
+            $data
+        );
+    }
+
 }
